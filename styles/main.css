@@ -1,13 +1,24 @@
-:root { color-scheme: light dark; }
+/* --- Thème clair forcé (mobile/dark mode) --- */
+:root { color-scheme: light; }
+html, body { background:#f9fafb; color:#111827; }
 * { -webkit-tap-highlight-color: transparent; }
-body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
+
+/* iOS / auto-dark: force le texte noir dans les champs */
+input, textarea, select, button { color:#111; background:#fff; }
+input::placeholder, textarea::placeholder { color:#6b7280; opacity:1; }
+input, textarea { -webkit-text-fill-color:#111; }
+input:-webkit-autofill, textarea:-webkit-autofill {
+  -webkit-text-fill-color:#111 !important;
+  -webkit-box-shadow: 0 0 0 1000px #fff inset;
+}
 
 /* UI base */
+body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
 .card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px; }
-.btn { padding:.6rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; touch-action: manipulation; }
+.btn { padding:.6rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; touch-action: manipulation; color:#111; }
 .btn-primary { padding:.7rem 1rem; border-radius:10px; background:#2563eb; color:#fff; font-weight:600; }
-.input { width:100%; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; }
-.session-item { display:flex; justify-content:space-between; align-items:center; gap:.6rem; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:12px; background:#fff; }
+.input { width:100%; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; color:#111; }
+.session-item { display:flex; justify-content:space-between; align-items:center; gap:.6rem; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:12px; background:#fff; color:#111; }
 .actions { display:flex; gap:.5rem; flex-wrap:wrap; }
 .btn-danger { background:#fee2e2; border-color:#fecaca; }
 
@@ -19,7 +30,7 @@ body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
 .card-inner { position: relative; margin: 0 auto; width: min(640px, 92vw); height: 280px; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.22,.61,.36,1); }
 .card-inner.bump { animation: bump .18s ease; }
 @keyframes bump { 0%{transform:translateY(0)} 50%{transform:translateY(-4px)} 100%{transform:translateY(0)} }
-.card-face { position: absolute; inset: 0; display: grid; place-items: center; background:#fff; border:1px solid #e5e7eb; border-radius: 18px; box-shadow:0 12px 30px rgba(0,0,0,.06); backface-visibility: hidden; padding: 1.2rem; }
+.card-face { position: absolute; inset: 0; display: grid; place-items: center; background:#fff; border:1px solid #e5e7eb; border-radius: 18px; box-shadow:0 12px 30px rgba(0,0,0,.06); backface-visibility: hidden; padding: 1.2rem; color:#111; }
 .card-front { transform: rotateY(0deg); }
 .card-back  { transform: rotateY(180deg); }
 .card-inner.flipped { transform: rotateY(180deg); }
@@ -30,15 +41,17 @@ body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
   .arabic { font-size: clamp(1.2rem, 7.2vw, 1.8rem); }
   .card-inner { width: 100%; height: min(58vh, 72vw); }
   .card-face { padding: .9rem; }
-  /* Boutons du jeu : colonne et pleine largeur */
   #controls { flex-direction: column; }
   #controls .btn, #controls .btn-primary { width: 100%; }
-  /* Items de liste : pile + actions qui wrap */
   .session-item { flex-direction: column; align-items: stretch; }
   .actions .btn { flex: 1 1 48%; }
 }
-/* très petit écran */
 @media (max-width: 380px) {
   .arabic { font-size: clamp(1.1rem, 7.8vw, 1.6rem); }
   .card-inner { height: min(60vh, 78vw); }
+}
+
+/* Si le device est en dark mode, on garde notre clair */
+@media (prefers-color-scheme: dark) {
+  html, body { background:#f9fafb; color:#111827; }
 }

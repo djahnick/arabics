@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light">
   <title>Mini Quizlet — Jeu</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="../styles/main.css" />
@@ -29,7 +30,6 @@
     </div>
     <p class="text-center text-sm text-gray-500">clic ou barre d’espace pour retourner</p>
 
-    <!-- 👇 ID ajouté pour cibler en mobile -->
     <div id="controls" class="flex gap-3">
       <button id="btn-known"   class="btn-primary flex-1">✅ Je savais</button>
       <button id="btn-unknown" class="btn flex-1">❌ Je ne savais pas</button>
@@ -44,7 +44,6 @@
       </div>
     </div>
   </div>
-
   <script type="module" src="../src/game.js"></script>
 </body>
 </html>
