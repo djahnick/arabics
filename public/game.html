@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Quizlet — Jeu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body class="min-h-screen bg-gray-50 p-6">
+  <div class="mx-auto max-w-2xl space-y-4">
+    <header class="flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <a href="./" class="btn">&larr; Retour</a>
+        <h1 id="session-title" class="text-xl font-bold"></h1>
+      </div>
+      <div class="text-sm text-gray-500" id="progress">0 / 0</div>
+    </header>
+
+    <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
+      <div id="progress-bar" class="h-2 bg-blue-600" style="width:0%"></div>
+    </div>
+
+    <div id="card" class="card-3d">
+      <div id="card-inner" class="card-inner">
+        <div id="front" class="card-face card-front arabic text-3xl font-semibold">...</div>
+        <div id="back"  class="card-face card-back  text-2xl">...</div>
+      </div>
+    </div>
+    <p class="text-center text-sm text-gray-500">clic ou barre d’espace pour retourner</p>
+
+    <!-- 👇 ID ajouté pour cibler en mobile -->
+    <div id="controls" class="flex gap-3">
+      <button id="btn-known"   class="btn-primary flex-1">✅ Je savais</button>
+      <button id="btn-unknown" class="btn flex-1">❌ Je ne savais pas</button>
+    </div>
+
+    <div id="results" class="hidden bg-white rounded-xl p-6 border">
+      <h2 class="font-semibold mb-2">Résultat</h2>
+      <p id="score-line" class="mb-3"></p>
+      <div class="flex gap-2">
+        <button id="btn-replay" class="btn-primary">↻ Rejouer</button>
+        <a href="./" class="btn">⬅︎ Accueil</a>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="../src/game.js"></script>
+</body>
+</html>

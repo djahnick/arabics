@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mini Quizlet Arabe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chemins RELATIFS (OK GitHub Pages) -->
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body class="min-h-screen bg-gray-50 p-6">
+  <div class="mx-auto max-w-2xl space-y-6">
+    <header class="flex items-center justify-between">
+      <h1 class="text-2xl font-bold text-blue-700">📘 Mini Quizlet Arabe</h1>
+      <div class="flex gap-2">
+        <button id="export-all" class="btn">💾 Exporter tout</button>
+        <label class="btn cursor-pointer">
+          ⬆️ Importer JSON
+          <input id="import-file" type="file" accept="application/json" class="hidden">
+        </label>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 class="text-lg font-semibold mb-3">➕ Nouvelle session</h2>
+      <form id="session-form" class="space-y-3">
+        <textarea id="words" class="input" rows="4" placeholder='[{"ar":"أحمر","fr":"rouge"}]' required></textarea>
+        <input id="title" class="input" placeholder="Titre (ex : Les couleurs)" required />
+        <button class="btn-primary w-full" type="submit">Ajouter</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2 class="text-lg font-semibold mb-3">Mes sessions</h2>
+      <ul id="sessions" class="space-y-2"></ul>
+    </section>
+  </div>
+
+  <!-- Chemin RELATIF -->
+  <script type="module" src="../src/main.js"></script>
+</body>
+</html>

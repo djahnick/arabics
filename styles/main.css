@@ -1,0 +1,44 @@
+:root { color-scheme: light dark; }
+* { -webkit-tap-highlight-color: transparent; }
+body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
+
+/* UI base */
+.card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px; }
+.btn { padding:.6rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; touch-action: manipulation; }
+.btn-primary { padding:.7rem 1rem; border-radius:10px; background:#2563eb; color:#fff; font-weight:600; }
+.input { width:100%; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; }
+.session-item { display:flex; justify-content:space-between; align-items:center; gap:.6rem; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:12px; background:#fff; }
+.actions { display:flex; gap:.5rem; flex-wrap:wrap; }
+.btn-danger { background:#fee2e2; border-color:#fecaca; }
+
+/* Arabe */
+.arabic { direction: rtl; font-size: 1.8rem; line-height: 1.3; }
+
+/* ====== Carte flip 3D ====== */
+.card-3d { perspective: 1200px; width: 100%; background: transparent; padding: 0.5rem; }
+.card-inner { position: relative; margin: 0 auto; width: min(640px, 92vw); height: 280px; transform-style: preserve-3d; transition: transform .45s cubic-bezier(.22,.61,.36,1); }
+.card-inner.bump { animation: bump .18s ease; }
+@keyframes bump { 0%{transform:translateY(0)} 50%{transform:translateY(-4px)} 100%{transform:translateY(0)} }
+.card-face { position: absolute; inset: 0; display: grid; place-items: center; background:#fff; border:1px solid #e5e7eb; border-radius: 18px; box-shadow:0 12px 30px rgba(0,0,0,.06); backface-visibility: hidden; padding: 1.2rem; }
+.card-front { transform: rotateY(0deg); }
+.card-back  { transform: rotateY(180deg); }
+.card-inner.flipped { transform: rotateY(180deg); }
+
+/* ====== Responsive ====== */
+@media (max-width: 640px) {
+  body { padding: 1rem; }
+  .arabic { font-size: clamp(1.2rem, 7.2vw, 1.8rem); }
+  .card-inner { width: 100%; height: min(58vh, 72vw); }
+  .card-face { padding: .9rem; }
+  /* Boutons du jeu : colonne et pleine largeur */
+  #controls { flex-direction: column; }
+  #controls .btn, #controls .btn-primary { width: 100%; }
+  /* Items de liste : pile + actions qui wrap */
+  .session-item { flex-direction: column; align-items: stretch; }
+  .actions .btn { flex: 1 1 48%; }
+}
+/* très petit écran */
+@media (max-width: 380px) {
+  .arabic { font-size: clamp(1.1rem, 7.8vw, 1.6rem); }
+  .card-inner { height: min(60vh, 78vw); }
+}
