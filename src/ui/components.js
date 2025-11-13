@@ -1,5 +1,21 @@
 import { el } from './dom.js';
 
+export function CourseItem({ id, title, onOpen, onDelete }) {
+  return el('li', { class: 'session-item' }, [
+    el('div', {}, title || '(cours sans titre)'),
+    el('div', { class: 'actions' }, [
+      el('button', {
+        class: 'btn',
+        onclick: () => onOpen(id)
+      }, '📂 Ouvrir'),
+      el('button', {
+        class: 'btn btn-danger',
+        onclick: () => onDelete(id)
+      }, '🗑️ Supprimer')
+    ])
+  ]);
+}
+
 export function SessionItem({ id, title, wordsCount, onDelete, onExport }) {
   return el('li', { class: 'session-item' }, [
     el('div', {}, `${title} (${wordsCount} mot(s))`),

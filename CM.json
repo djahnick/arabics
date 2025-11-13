@@ -1,0 +1,143 @@
+[
+  {
+    "title": "Nature & Temps",
+    "words": [
+      {"fr": "le vent", "ar": "الرِّيح"},
+      {"fr": "l’eau", "ar": "الْمَاء"},
+      {"fr": "le jour", "ar": "النَّهار"},
+      {"fr": "la nuit", "ar": "اللَّيْل"},
+      {"fr": "aujourd’hui", "ar": "اليَوْم"},
+      {"fr": "demain", "ar": "غَدًا"},
+      {"fr": "hier", "ar": "أَمْسِ"}
+    ]
+  },
+  {
+    "title": "Lieux & Directions",
+    "words": [
+      {"fr": "ici", "ar": "هُنَا"},
+      {"fr": "là-bas", "ar": "هُنَاكَ"},
+      {"fr": "dans", "ar": "فِي"},
+      {"fr": "de", "ar": "مِن"},
+      {"fr": "sur", "ar": "عَلَى"},
+      {"fr": "vers", "ar": "نَحْوَ"},
+      {"fr": "à", "ar": "إِلَى"},
+      {"fr": "au", "ar": "إِلَى / فِي"},
+      {"fr": "chez", "ar": "لَدَى / عِنْدَ"},
+      {"fr": "avec", "ar": "مَعَ"},
+      {"fr": "pour", "ar": "لِـ"},
+      {"fr": "possession", "ar": "مِلْك / مِلْكِيَّة"},
+      {"fr": "pour la possession", "ar": "لِلمِلْكِيَّة"}
+    ]
+  },
+  {
+    "title": "Adjectifs & Qualités",
+    "words": [
+      {"fr": "simple", "ar": "بَسِيط"},
+      {"fr": "complexe", "ar": "مُعَقَّد"},
+      {"fr": "malade", "ar": "مَريض"},
+      {"fr": "absent", "ar": "غَائِب"},
+      {"fr": "présent", "ar": "حَاضِر"},
+      {"fr": "fin", "ar": "رَقِيق"},
+      {"fr": "épais", "ar": "سَمِيك"},
+      {"fr": "révolution", "ar": "ثَوْرَة"},
+      {"fr": "destin", "ar": "قَدَر"},
+      {"fr": "radin", "ar": "بَخِيل"},
+      {"fr": "franc", "ar": "صَرِيح"},
+      {"fr": "ridicule", "ar": "سَخِيف"},
+      {"fr": "stupide", "ar": "غَبِيّ"},
+      {"fr": "beaucoup", "ar": "كَثِيرًا"},
+      {"fr": "effrayé", "ar": "خَائِف"},
+      {"fr": "luxueux", "ar": "فَاخِر"},
+      {"fr": "moderne", "ar": "حَدِيث"},
+      {"fr": "léger", "ar": "خَفِيف"},
+      {"fr": "éloquent", "ar": "فَصِيح"},
+      {"fr": "étrange", "ar": "غَرِيب"},
+      {"fr": "cher", "ar": "غَالٍ"},
+      {"fr": "pas cher", "ar": "رَخِيص"},
+      {"fr": "lourd", "ar": "ثَقِيل"}
+    ]
+  },
+  {
+    "title": "Animaux • Nourriture • Divers",
+    "words": [
+      {"fr": "garçon", "ar": "وَلَد"},
+      {"fr": "chat", "ar": "قِطّ"},
+      {"fr": "homme", "ar": "رَجُل"},
+      {"fr": "femme", "ar": "اِمْرَأَة"},
+      {"fr": "mouton", "ar": "خَرُوف"},
+
+      {"fr": "un fruit", "ar": "فَاكِهَة"},
+      {"fr": "les fruits", "ar": "الفَوَاكِه"},
+      {"fr": "bonbons", "ar": "حَلْوَى"},
+      {"fr": "farine", "ar": "دَقِيق"},
+      {"fr": "pain", "ar": "خُبْز"},
+      {"fr": "blé cassé", "ar": "بُرْغُل"},
+      {"fr": "sucre", "ar": "سُكَّر"},
+      {"fr": "poivre", "ar": "فِلْفِل"},
+      {"fr": "orge", "ar": "شَعِير"},
+      {"fr": "piment", "ar": "فِلْفِل حَارّ"},
+      {"fr": "viande", "ar": "لَحْم"},
+      {"fr": "riz", "ar": "أَرُزّ"},
+      {"fr": "jus", "ar": "عَصِير"},
+      {"fr": "lait", "ar": "حَلِيب"},
+
+      {"fr": "banal", "ar": "عَادِيّ"},
+      {"fr": "grandir", "ar": "يَكْبُر"},
+      {"fr": "rétrécir", "ar": "يَنْكَمِش / يَصْغُر"},
+      {"fr": "maladie", "ar": "مَرَض"},
+      {"fr": "l’articulation", "ar": "مِفْصَل"},
+      {"fr": "mine de crayon", "ar": "رَصَاصَة / سِنّ القَلَم"},
+
+      {"fr": "minute", "ar": "دَقِيقَة"},
+      {"fr": "heure", "ar": "سَاعَة"},
+      {"fr": "seconde", "ar": "ثَانِيَة"},
+      {"fr": "semaine", "ar": "أُسْبُوع"},
+      {"fr": "week-end", "ar": "عُطْلَة نِهَايَة الأُسْبُوع"},
+      {"fr": "année", "ar": "سَنَة"},
+      {"fr": "an", "ar": "عام"},
+      {"fr": "mois", "ar": "شَهْر"},
+      {"fr": "siècle", "ar": "قَرْن"}
+    ]
+  },
+  {
+    "title": "Directions • Interrogation • Actions",
+    "words": [
+      {"fr": "autour", "ar": "حَوْلَ"},
+      {"fr": "en haut", "ar": "فَوْق"},
+      {"fr": "en bas", "ar": "تَحْت"},
+      {"fr": "dessous", "ar": "أَسْفَل"},
+      {"fr": "dessus", "ar": "أَعْلَى"},
+      {"fr": "devant", "ar": "أَمَام"},
+      {"fr": "derrière", "ar": "وَرَاء"},
+      {"fr": "dedans", "ar": "دَاخِل"},
+      {"fr": "à côté", "ar": "بِجَانِب"},
+
+      {"fr": "sur qui", "ar": "عَلَى مَنْ"},
+      {"fr": "avec qui", "ar": "مَعَ مَنْ"},
+      {"fr": "à qui", "ar": "لِمَنْ"},
+      {"fr": "quand", "ar": "مَتَى"},
+      {"fr": "comment", "ar": "كَيْفَ"},
+      {"fr": "vers où", "ar": "إِلَى أَيْنَ"},
+      {"fr": "de qui", "ar": "مِمَّنْ"},
+      {"fr": "jusqu’à quand", "ar": "إِلَى مَتَى"},
+      {"fr": "pourquoi", "ar": "لِمَاذَا"},
+      {"fr": "d’où", "ar": "مِنْ أَيْنَ"},
+      {"fr": "avec quoi", "ar": "بِمَاذَا"},
+      {"fr": "que", "ar": "أَنْ / أَنَّ"},
+      {"fr": "quoi", "ar": "مَاذَا"},
+      {"fr": "depuis quand", "ar": "مُنْذُ مَتَى"},
+
+      {"fr": "sommeil", "ar": "نَوْم"},
+      {"fr": "ville", "ar": "مَدِينَة"},
+      {"fr": "pays", "ar": "بَلَد"},
+
+      {"fr": "posséder", "ar": "يَمْلِك"},
+      {"fr": "rapidement", "ar": "بِسُرْعَة"},
+      {"fr": "facilement", "ar": "بِسُهُولَة"},
+      {"fr": "jouer", "ar": "يَلْعَب"},
+      {"fr": "instrument de musique", "ar": "آلَة مُوسِيقِيَّة"},
+      {"fr": "football", "ar": "كُرَة القَدَم"},
+      {"fr": "tout seul", "ar": "وَحْدَه"}
+    ]
+  }
+]

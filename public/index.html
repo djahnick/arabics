@@ -12,29 +12,55 @@
   <div class="mx-auto max-w-2xl space-y-6">
     <header class="flex items-center justify-between">
       <h1 class="text-2xl font-bold text-blue-700">📘 Mini Quizlet Arabe</h1>
-      <div class="flex gap-2">
-        <button id="export-all" class="btn">💾 Exporter tout</button>
+    </header>
+
+    <!-- VUE COURS -->
+    <section id="courses-view" class="space-y-4">
+      <div class="card">
+        <h2 class="text-lg font-semibold mb-3">📚 Mes cours</h2>
+        <ul id="courses-list" class="space-y-2"></ul>
+      </div>
+
+      <div class="card">
+        <h2 class="text-lg font-semibold mb-3">➕ Nouveau cours</h2>
+        <form id="course-form" class="space-y-3">
+          <input id="course-title" class="input" placeholder="Nom du cours (ex : Cours magistral)" required />
+          <button class="btn-primary w-full" type="submit">Créer le cours</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- VUE SESSIONS D'UN COURS -->
+    <section id="sessions-view" class="space-y-4 hidden">
+      <div class="flex items-center justify-between">
+        <button id="back-to-courses" class="btn">⬅︎ Tous les cours</button>
+        <h2 id="current-course-title" class="text-lg font-semibold"></h2>
+      </div>
+
+      <div class="card">
+        <h3 class="text-md font-semibold mb-2">📂 Sessions du cours</h3>
+        <ul id="sessions" class="space-y-2"></ul>
+      </div>
+
+      <div class="card">
+        <h3 class="text-md font-semibold mb-2">➕ Nouvelle session</h3>
+        <form id="session-form" class="space-y-3">
+          <input id="title" class="input" placeholder="Titre de la session (ex : Couleurs)" required />
+          <textarea id="words" class="input" rows="4" placeholder='[{"ar":"أحمر","fr":"rouge"}]' required></textarea>
+          <button class="btn-primary w-full" type="submit">Ajouter la session</button>
+        </form>
+      </div>
+
+      <div class="flex justify-end gap-2 text-sm">
+        <button id="export-all" class="btn">💾 Exporter les sessions du cours</button>
         <label class="btn cursor-pointer">
           ⬆️ Importer JSON
           <input id="import-file" type="file" accept="application/json" class="hidden">
         </label>
       </div>
-    </header>
-
-    <section class="card">
-      <h2 class="text-lg font-semibold mb-3">➕ Nouvelle session</h2>
-      <form id="session-form" class="space-y-3">
-        <textarea id="words" class="input" rows="4" placeholder='[{"ar":"أحمر","fr":"rouge"}]' required></textarea>
-        <input id="title" class="input" placeholder="Titre (ex : Les couleurs)" required />
-        <button class="btn-primary w-full" type="submit">Ajouter</button>
-      </form>
-    </section>
-
-    <section class="card">
-      <h2 class="text-lg font-semibold mb-3">Mes sessions</h2>
-      <ul id="sessions" class="space-y-2"></ul>
     </section>
   </div>
+
   <script type="module" src="../src/main.js"></script>
 </body>
 </html>
