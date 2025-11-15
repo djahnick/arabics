@@ -2,8 +2,10 @@ import { el } from './dom.js';
 
 export function CourseItem({ id, title, onOpen, onDelete }) {
   return el('li', { class: 'session-item' }, [
-    el('div', {}, title || '(cours sans titre)'),
-    el('div', { class: 'actions' }, [
+    el('div', { class: 'session-main' }, [
+      el('div', { class: 'session-title' }, title || '(cours sans titre)'),
+    ]),
+    el('div', { class: 'actions session-actions' }, [
       el('button', {
         class: 'btn',
         onclick: () => onOpen(id)
@@ -16,11 +18,20 @@ export function CourseItem({ id, title, onOpen, onDelete }) {
   ]);
 }
 
-export function SessionItem({ id, title, wordsCount, onDelete, onExport }) {
+export function SessionItem({ id, title, wordsCount, statsLabel, onDelete, onExport }) {
+  const wordsText = `${wordsCount || 0} mot${wordsCount > 1 ? 's' : ''}`;
+
   return el('li', { class: 'session-item' }, [
-    el('div', {}, `${title} (${wordsCount} mot(s))`),
-    el('div', { class: 'actions' }, [
-      // Redirection RELATIVE (OK local + GitHub Pages)
+    el('div', { class: 'session-main' }, [
+      el('div', { class: 'session-title' }, title || '(sans titre)'),
+      el('div', { class: 'session-meta' }, [
+        el('span', { class: 'session-pill session-pill-count' }, wordsText),
+        statsLabel
+          ? el('span', { class: 'session-pill session-pill-stats' }, statsLabel)
+          : el('span', { class: 'session-pill session-pill-stats muted' }, 'Pas encore de stats')
+      ])
+    ]),
+    el('div', { class: 'actions session-actions' }, [
       el('button', {
         class: 'btn',
         onclick: () => {

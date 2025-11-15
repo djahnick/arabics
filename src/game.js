@@ -8,19 +8,19 @@ requireAuth();
 // helpers
 const qs = (s, el=document) => el.querySelector(s);
 function shuffle(arr){
-  const a=arr.slice();
+  const a = arr.slice();
   for(let i=a.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [a[i],a[j]]=[a[j],a[i]];
+    const j = Math.floor(Math.random()*(i+1));
+    [a[i],a[j]] = [a[j],a[i]];
   }
   return a;
 }
 function speakArabic(text){
   try{
-    const u=new SpeechSynthesisUtterance(text);
-    const v=speechSynthesis.getVoices().find(x=>/ar/i.test(x.lang));
-    if(v) u.voice=v;
-    u.lang=v?.lang||'ar';
+    const u = new SpeechSynthesisUtterance(text);
+    const v = speechSynthesis.getVoices().find(x=>/ar/i.test(x.lang));
+    if(v) u.voice = v;
+    u.lang = v?.lang || 'ar';
     speechSynthesis.cancel();
     speechSynthesis.speak(u);
   }catch{}
@@ -39,23 +39,31 @@ const btnUnknown = qs('#btn-unknown');
 const resultsBox = qs('#results');
 const scoreLine  = qs('#score-line');
 const btnReplay  = qs('#btn-replay');
-const errorsBlock     = qs('#errors-block');
-const errorsList      = qs('#errors-list');
 const btnReplayErrors = qs('#btn-replay-errors');
+const btnBack    = qs('#btn-back');
+const btnHome    = qs('#btn-home');
+const errorsContainer = qs('#errors-container');
+const errorsListEl    = qs('#errors-list');
+const modeArFrBtn = qs('#mode-ar-fr');
+const modeFrArBtn = qs('#mode-fr-ar');
 
 // state
-let words = [];
-let order = [];
-let idx   = 0;
-let score = { known: 0, unknown: 0 };
-let answers = [];      // [{ index, known }, ...]
-let currentIndex = null;
-let modeErrorsOnly = false;
+let mode = 'ar-fr';        // 'ar-fr' ou 'fr-ar'
+let sessionWords = [];     // tous les mots de la session d'origine
+let words        = [];     // mots utilisés dans la partie (tous ou seulement erreurs)
+let wordIndexes  = [];     // pour chaque entrée de "words", index original dans sessionWords
+let order        = [];
+let idx          = 0;
+let score        = { known: 0, unknown: 0 };
+let errorsIndexes = [];       // erreurs de la PARTIE en cours (index originaux)
+let lastErrorsToReplay = [];  // erreurs de la DERNIÈRE partie (pour le bouton "rejouer ces mots")
+let answers      = [];        // [{ index: <index original>, known: true/false }, ...]
 
-// get session id (URL or fallback localStorage)
+// get session id (URL ou fallback localStorage)
 const params = new URLSearchParams(location.search);
 let sessionId = params.get('session') || (() => {
-  try { return localStorage.getItem('lastSessionId'); } catch { return null; }
+  try{ return localStorage.getItem('lastSessionId'); }
+  catch{ return null; }
 })();
 
 if (!sessionId) {
@@ -64,12 +72,33 @@ if (!sessionId) {
   throw new Error('No session id');
 }
 
-await load();
+// ---- NAVIGATION ----
+function goBackToApp() {
+  if (window.history.length > 1) {
+    window.history.back();
+  } else {
+    window.location.href = './';
+  }
+}
 
-// Chargement / reset d'une partie complète (mode normal ou erreurs seulement)
-async function load(){
+// ---- MODE ----
+function updateModeUI() {
+  modeArFrBtn?.classList.toggle('mode-active', mode === 'ar-fr');
+  modeFrArBtn?.classList.toggle('mode-active', mode === 'fr-ar');
+}
+
+function setMode(newMode) {
+  if (mode === newMode) return;
+  mode = newMode;
+  updateModeUI();
+  // on relance une partie complète dans le nouveau sens
+  load(false);
+}
+
+// ---- LOAD SESSION ----
+async function load(useErrorsOnly = false){
   const s = await getSession(sessionId);
-  if (!s) {
+  if(!s){
     alert('Session introuvable');
     location.href = './';
     return;
@@ -77,20 +106,31 @@ async function load(){
   try { localStorage.setItem('lastSessionId', sessionId); } catch {}
 
   titleEl.textContent = `🎮 ${s.title || '(sans titre)'}`;
-  words = Array.isArray(s.words) ? s.words : [];
+  sessionWords = Array.isArray(s.words) ? s.words : [];
 
-  // Si on rejoue toute la session -> ordre = tous les indices
+  // reset état de la nouvelle partie
+  answers       = [];
+  score         = { known: 0, unknown: 0 };
+  errorsIndexes = [];
+  resultsBox.classList.add('hidden');
+  btnReplayErrors?.classList.add('hidden');
+  if (errorsContainer) errorsContainer.classList.add('hidden');
+  if (errorsListEl) errorsListEl.innerHTML = '';
+
+  if (useErrorsOnly && lastErrorsToReplay.length) {
+    // Rejouer uniquement les erreurs de la partie précédente
+    wordIndexes = lastErrorsToReplay.slice();
+    words = wordIndexes
+      .map(i => sessionWords[i])
+      .filter(Boolean);
+  } else {
+    // Rejouer toute la session
+    wordIndexes = sessionWords.map((_, idx) => idx);
+    words = sessionWords;
+  }
+
   order = shuffle([...Array(words.length).keys()]);
   idx = 0;
-  score = { known: 0, unknown: 0 };
-  answers = [];
-  modeErrorsOnly = false;
-
-  resultsBox.classList.add('hidden');
-  errorsBlock?.classList.add('hidden');
-  if (errorsList) errorsList.innerHTML = '';
-
-  setFlipped(false);
 
   if (!words.length){
     frontEl.textContent='Aucun mot';
@@ -113,19 +153,31 @@ function bump(){
   cardInner.classList.add('bump');
 }
 function renderCurrent(){
-  const i = order[idx];
-  currentIndex = i;
-  const { ar, fr } = words[i] || {};
-  frontEl.textContent = ar || '—';
-  backEl.textContent  = fr || '—';
+  const localIdx = order[idx];
+  const w = words[localIdx] || {};
+  const { ar, fr } = w;
+
+  let question, answer;
+  if (mode === 'ar-fr') {
+    question = ar;
+    answer   = fr;
+  } else {
+    question = fr;
+    answer   = ar;
+  }
+
+  frontEl.textContent = question || '—';
+  backEl.textContent  = answer   || '—';
   setFlipped(false);
   updateProgress();
   bump();
-  speakArabic(ar);
+
+  // On lit toujours la version arabe pour l'oreille
+  if (ar) speakArabic(ar);
 }
 function updateProgress(){
   const total   = order.length || 0;
-  const current = Math.min(idx+1, total);
+  const current = Math.min(idx+1,total);
   progressEl.textContent = `${current} / ${total}`;
   const pct = total ? Math.round((idx/total)*100) : 0;
   barEl.style.width = `${pct}%`;
@@ -136,26 +188,31 @@ function flipCard(){
   setFlipped(!cardInner.classList.contains('flipped'));
 }
 
-async function answer(known){
-  if (currentIndex == null) return;
+function answer(known){
+  const localIdx      = order[idx];
+  const originalIndex = wordIndexes[localIdx];
 
-  // mémoriser la réponse pour les stats & les erreurs
-  answers.push({ index: currentIndex, known });
+  // enregistrer la réponse pour les stats
+  if (typeof originalIndex === 'number') {
+    answers.push({ index: originalIndex, known });
+  }
 
-  if (known) score.known++;
-  else       score.unknown++;
+  if (known) {
+    score.known++;
+  } else {
+    score.unknown++;
+    if (typeof originalIndex === 'number' && !errorsIndexes.includes(originalIndex)) {
+      errorsIndexes.push(originalIndex);
+    }
+  }
 
   idx++;
-  if (idx >= order.length) {
-    await endGame();
-    return;
-  }
+  if(idx>=order.length) return endGame();
   renderCurrent();
 }
 
 async function endGame(){
-  btnKnown.disabled   = true;
-  btnUnknown.disabled = true;
+  btnKnown.disabled = btnUnknown.disabled = true;
   setFlipped(false);
   updateProgress();
   barEl.style.width='100%';
@@ -164,84 +221,78 @@ async function endGame(){
   const total = order.length;
   scoreLine.textContent = `✅ ${score.known} connus — ❌ ${score.unknown} à revoir (total ${total})`;
 
-  // Affichage des erreurs de cette partie
-  const errors = answers.filter(a => !a.known);
-  if (errors.length && errorsBlock && errorsList) {
-    errorsBlock.classList.remove('hidden');
-    errorsList.innerHTML = '';
-    const seen = new Set();
-    for (const e of errors) {
-      const idx = e.index;
-      if (seen.has(idx)) continue;
-      seen.add(idx);
-      const w = words[idx];
-      if (!w) continue;
-      const li = document.createElement('li');
-      li.textContent = `${w.fr || '—'}  —  ${w.ar || '—'}`;
-      errorsList.appendChild(li);
-    }
-  } else if (errorsBlock) {
-    errorsBlock.classList.add('hidden');
+  // Erreurs de cette partie = ce qu'on proposera pour "rejouer seulement ces mots"
+  lastErrorsToReplay = errorsIndexes.slice();
+
+  // Affichage du bouton "rejouer seulement ces mots"
+  if (errorsIndexes.length) {
+    btnReplayErrors?.classList.remove('hidden');
+  } else {
+    btnReplayErrors?.classList.add('hidden');
   }
 
-  // Envoi des stats en base (liées à l'utilisateur courant)
+  // Afficher la liste des erreurs
+  if (errorsListEl) errorsListEl.innerHTML = '';
+  if (errorsIndexes.length && errorsContainer && errorsListEl) {
+    errorsContainer.classList.remove('hidden');
+    for (const originalIndex of errorsIndexes) {
+      const w = sessionWords[originalIndex];
+      if (!w) continue;
+      const li = document.createElement('li');
+      li.textContent = `${w.fr || '—'} — ${w.ar || '—'}`;
+      errorsListEl.appendChild(li);
+    }
+  } else if (errorsContainer) {
+    errorsContainer.classList.add('hidden');
+  }
+
+  // ---- Enregistrer les stats en base ----
   try {
     const userId = getCurrentUser();
     if (userId && answers.length) {
-      await recordGameResult({ userId, sessionId, answers });
+      await recordGameResult({
+        userId,
+        sessionId,
+        answers
+      });
     }
   } catch (err) {
-    console.error('Erreur enregistrement stats :', err);
+    console.error('Erreur enregistrement stats', err);
   }
-}
-
-// Rejouer uniquement les erreurs de la dernière partie
-function replayErrorsOnly(){
-  const errors = answers.filter(a => !a.known);
-  const errorIndices = [...new Set(errors.map(e => e.index))];
-
-  if (!errorIndices.length) {
-    alert("Tu n'as aucune erreur à revoir sur cette partie, bravo !");
-    return;
-  }
-
-  order = shuffle(errorIndices);
-  idx = 0;
-  score = { known: 0, unknown: 0 };
-  answers = [];
-  modeErrorsOnly = true;
-
-  resultsBox.classList.add('hidden');
-  if (errorsBlock) errorsBlock.classList.add('hidden');
-  if (errorsList) errorsList.innerHTML = '';
-
-  btnKnown.disabled   = false;
-  btnUnknown.disabled = false;
-
-  renderCurrent();
 }
 
 // events
 cardEl.addEventListener('click', flipCard);
-btnKnown.addEventListener('click', () => { answer(true); });
-btnUnknown.addEventListener('click', () => { answer(false); });
-btnReplay.addEventListener('click', () => { load(); });
-btnReplayErrors?.addEventListener('click', () => { replayErrorsOnly(); });
+btnKnown.addEventListener('click', ()=>answer(true));
+btnUnknown.addEventListener('click', ()=>answer(false));
+btnReplay.addEventListener('click', ()=>load(false));
+btnReplayErrors?.addEventListener('click', ()=>load(true));
 
-window.addEventListener('keydown', (e) => {
-  if (e.code === 'Space') {
+// Retour & Accueil
+btnBack?.addEventListener('click', goBackToApp);
+btnHome?.addEventListener('click', goBackToApp);
+
+// Changement de mode
+modeArFrBtn?.addEventListener('click', () => setMode('ar-fr'));
+modeFrArBtn?.addEventListener('click', () => setMode('fr-ar'));
+
+window.addEventListener('keydown', (e)=>{
+  if(e.code==='Space'){
     e.preventDefault();
     flipCard();
-  } else if (e.code === 'ArrowRight') {
+  } else if(e.code==='ArrowRight'){
     answer(true);
-  } else if (e.code === 'ArrowLeft') {
+  } else if(e.code==='ArrowLeft'){
     answer(false);
   }
 });
-
-window.addEventListener('voiceschanged', () => {
-  if (words.length && order.length) {
-    const idx0 = order[0];
-    speakArabic(words[idx0]?.ar);
+window.addEventListener('voiceschanged', ()=>{
+  if(words.length) {
+    const w = words[order[idx]];
+    if (w?.ar) speakArabic(w.ar);
   }
 });
+
+// ---- INIT ----
+updateModeUI();
+load(false);

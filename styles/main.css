@@ -15,12 +15,111 @@ input:-webkit-autofill, textarea:-webkit-autofill {
 /* UI base */
 body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
 .card { background:#fff; border:1px solid #e5e7eb; border-radius:16px; padding:16px; }
-.btn { padding:.6rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; touch-action: manipulation; color:#111; }
+.btn { padding:.6rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; touch-action: manipulation; color:#111; font-size:.9rem; }
 .btn-primary { padding:.7rem 1rem; border-radius:10px; background:#2563eb; color:#fff; font-weight:600; }
 .input { width:100%; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:10px; background:#fff; color:#111; }
-.session-item { display:flex; justify-content:space-between; align-items:center; gap:.6rem; padding:.7rem .9rem; border:1px solid #e5e7eb; border-radius:12px; background:#fff; color:#111; }
-.actions { display:flex; gap:.5rem; flex-wrap:wrap; }
-.btn-danger { background:#fee2e2; border-color:#fecaca; }
+
+/* === Sessions & cours list === */
+.session-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  padding:.9rem 1rem;
+  border:1px solid #e5e7eb;
+  border-radius:14px;
+  background:#fff;
+  color:#111;
+  box-shadow:0 8px 24px rgba(15,23,42,.03);
+}
+
+.session-main {
+  flex:1;
+  min-width:0;
+}
+
+.session-title {
+  font-weight:600;
+  font-size:.98rem;
+  margin-bottom:.25rem;
+  color:#111827;
+}
+
+.session-meta {
+  display:flex;
+  flex-wrap:wrap;
+  gap:.35rem;
+  align-items:center;
+  font-size:.78rem;
+}
+
+.session-pill {
+  padding:.14rem .5rem;
+  border-radius:999px;
+  border:1px solid transparent;
+  white-space:nowrap;
+}
+
+.session-pill-count {
+  background:#eff6ff;
+  border-color:#dbeafe;
+  color:#1d4ed8;
+  font-weight:500;
+}
+
+.session-pill-stats {
+  background:#fefce8;
+  border-color:#fef3c7;
+  color:#92400e;
+}
+
+.session-pill-stats.muted {
+  background:#f3f4f6;
+  border-color:#e5e7eb;
+  color:#6b7280;
+}
+
+.actions {
+  display:flex;
+  gap:.4rem;
+  flex-wrap:wrap;
+}
+
+.session-actions .btn {
+  font-size:.8rem;
+  padding:.45rem .7rem;
+}
+
+.btn-danger {
+  background:#fee2e2;
+  border-color:#fecaca;
+}
+
+/* Sélecteur de mode du jeu */
+.mode-toggle {
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:.35rem;
+  margin-top:.35rem;
+  margin-bottom:.25rem;
+  font-size:.78rem;
+}
+
+.mode-pill {
+  padding:.2rem .55rem;
+  border-radius:999px;
+  border:1px solid #e5e7eb;
+  background:#fff;
+  cursor:pointer;
+}
+
+.mode-pill.mode-active {
+  background:#2563eb;
+  border-color:#2563eb;
+  color:#fff;
+  font-weight:500;
+}
 
 /* Arabe */
 .arabic { direction: rtl; font-size: 1.8rem; line-height: 1.3; }
@@ -38,14 +137,31 @@ body { font-family: system-ui, Segoe UI, Roboto, sans-serif; }
 /* ====== Responsive ====== */
 @media (max-width: 640px) {
   body { padding: 1rem; }
+
   .arabic { font-size: clamp(1.2rem, 7.2vw, 1.8rem); }
   .card-inner { width: 100%; height: min(58vh, 72vw); }
   .card-face { padding: .9rem; }
   #controls { flex-direction: column; }
   #controls .btn, #controls .btn-primary { width: 100%; }
-  .session-item { flex-direction: column; align-items: stretch; }
-  .actions .btn { flex: 1 1 48%; }
+
+  .session-item {
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .session-actions {
+    width:100%;
+    justify-content:flex-start;
+  }
+  .session-actions .btn {
+    flex:1 1 32%;
+    text-align:center;
+  }
+
+  .mode-toggle {
+    justify-content:center;
+  }
 }
+
 @media (max-width: 380px) {
   .arabic { font-size: clamp(1.1rem, 7.8vw, 1.6rem); }
   .card-inner { height: min(60vh, 78vw); }

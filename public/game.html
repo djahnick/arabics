@@ -12,7 +12,7 @@
   <div class="mx-auto max-w-2xl space-y-4">
     <header class="flex items-center justify-between">
       <div class="flex items-center gap-2">
-        <a href="./" class="btn">&larr; Retour</a>
+        <button id="btn-back" class="btn">&larr; Retour</button>
         <h1 id="session-title" class="text-xl font-bold"></h1>
       </div>
       <div class="text-sm text-gray-500" id="progress">0 / 0</div>
@@ -20,6 +20,13 @@
 
     <div class="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
       <div id="progress-bar" class="h-2 bg-blue-600" style="width:0%"></div>
+    </div>
+
+    <!-- Sélecteur de mode -->
+    <div class="mode-toggle">
+      <span class="text-xs text-gray-500 mr-1">Mode</span>
+      <button id="mode-ar-fr" class="mode-pill mode-active text-xs">Arabe → Français</button>
+      <button id="mode-fr-ar" class="mode-pill text-xs">Français → Arabe</button>
     </div>
 
     <div id="card" class="card-3d">
@@ -35,23 +42,20 @@
       <button id="btn-unknown" class="btn flex-1">❌ Je ne savais pas</button>
     </div>
 
-    <div id="results" class="hidden bg-white rounded-xl p-6 border space-y-3">
-      <div>
-        <h2 class="font-semibold mb-2">Résultat</h2>
-        <p id="score-line" class="mb-3"></p>
+    <div id="results" class="hidden bg-white rounded-xl p-6 border">
+      <h2 class="font-semibold mb-2">Résultat</h2>
+      <p id="score-line" class="mb-3"></p>
+
+      <!-- Liste des erreurs de la partie -->
+      <div id="errors-container" class="mt-2 text-sm text-left hidden">
+        <p class="font-semibold text-red-600 mb-1">❌ Tes erreurs dans cette partie</p>
+        <ul id="errors-list" class="space-y-1 text-gray-800 list-disc list-inside"></ul>
       </div>
 
-      <div id="errors-block" class="mt-2 hidden">
-        <h3 class="font-semibold mb-1">❌ Tes erreurs dans cette partie</h3>
-        <ul id="errors-list" class="text-sm space-y-1"></ul>
-        <button id="btn-replay-errors" class="btn-primary w-full mt-2">
-          ↻ Rejouer seulement ces mots
-        </button>
-      </div>
-
-      <div class="flex gap-2 pt-2">
-        <button id="btn-replay" class="btn-primary flex-1">↻ Rejouer toute la session</button>
-        <a href="./" class="btn flex-1 text-center">⬅︎ Accueil</a>
+      <div class="flex flex-col gap-2 mt-3">
+        <button id="btn-replay-errors" class="btn-primary hidden">↻ Rejouer seulement ces mots</button>
+        <button id="btn-replay" class="btn-primary">↻ Rejouer toute la session</button>
+        <button id="btn-home" class="btn">⬅︎ Accueil</button>
       </div>
     </div>
   </div>

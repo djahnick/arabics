@@ -4,6 +4,7 @@ import { CourseItem, SessionItem } from './ui/components.js';
 import { qs, el, toast } from './ui/dom.js';
 import { downloadJson, readFileAsText } from './utils/helpers.js';
 import { requireAuth, getCurrentUser, clearCurrentUser } from './auth.js';
+import { getSessionStats } from './services/stats.js';
 
 // Auth obligatoire
 requireAuth();
@@ -83,12 +84,44 @@ async function renderSessions() {
     sessionsListEl.append(el('li', {}, "Aucune session dans ce cours pour l'instant."));
     return;
   }
+
+  // Récupérer les stats pour chaque session (pour l'utilisateur connecté)
+  let statsById = {};
+  if (currentUser) {
+    const statsArray = await Promise.all(
+      sessions.map(s => getSessionStats(currentUser, s.id))
+    );
+    statsArray.forEach((st, idx) => {
+      const s = sessions[idx];
+      if (st) statsById[s.id] = st;
+    });
+  }
+
   sessions.forEach(s => {
+    const wordsCount = Array.isArray(s.words) ? s.words.length : 0;
+    const st = statsById[s.id];
+
+    let statsLabel = 'Pas encore de stats';
+    if (st) {
+      const totalKnown   = st.totalKnown   || 0;
+      const totalUnknown = st.totalUnknown || 0;
+      const totalAnswers = totalKnown + totalUnknown;
+      const totalPlays   = st.totalPlays   || 0;
+
+      if (totalAnswers > 0) {
+        const rate = Math.round((totalKnown / totalAnswers) * 100);
+        statsLabel = `${rate}% de réussite • ${totalPlays} partie(s)`;
+      } else if (totalPlays > 0) {
+        statsLabel = `${totalPlays} partie(s)`;
+      }
+    }
+
     sessionsListEl.append(
       SessionItem({
         id: s.id,
         title: s.title || '(sans titre)',
-        wordsCount: Array.isArray(s.words) ? s.words.length : 0,
+        wordsCount,
+        statsLabel,
         onDelete: async (id) => {
           if (!confirm('Supprimer cette session ?')) return;
           await removeSession(id);
