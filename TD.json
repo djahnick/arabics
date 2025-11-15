@@ -1,0 +1,260 @@
+[
+  {
+    "title": "Matières",
+    "words": [
+      {"fr": "Géographie", "ar": "الجُغْرافِيا"},
+      {"fr": "Histoire", "ar": "التَّارِيخ"},
+      {"fr": "Les sciences", "ar": "العُلُوم"},
+      {"fr": "Écriture", "ar": "الكِتابَة"}
+    ]
+  },
+
+  {
+    "title": "Activités & loisirs",
+    "words": [
+      {"fr": "Sport", "ar": "الرِّياضَة"},
+      {"fr": "Danse", "ar": "الرَّقْص"},
+      {"fr": "Chanter", "ar": "الغِنَاء"},
+      {"fr": "La nature", "ar": "الطَّبِيعَة"},
+      {"fr": "Musée", "ar": "مُتْحَف"},
+      {"fr": "Journal", "ar": "جَرِيدَة"},
+      {"fr": "Basketball", "ar": "كُرَةُ السَّلَّة"}
+    ]
+  },
+
+  {
+    "title": "Fruits & légumes",
+    "words": [
+      {"fr": "Aubergines", "ar": "باذِنْجان"},
+      {"fr": "Courgettes", "ar": "كوسا"},
+      {"fr": "Tomates", "ar": "طَماطِم"},
+      {"fr": "Bananes", "ar": "مُوز"},
+      {"fr": "Une date", "ar": "تَمْرَة"},
+      {"fr": "Orange (fruit)", "ar": "بُرْتُقالَة"}
+    ]
+  },
+
+  {
+    "title": "Directions & positions",
+    "words": [
+      {"fr": "En dessous", "ar": "تَحْتَ"},
+      {"fr": "Au-dessus", "ar": "فَوْقَ"},
+      {"fr": "Derrière", "ar": "وَراءَ"},
+      {"fr": "Devant", "ar": "أَمامَ"},
+      {"fr": "À gauche", "ar": "يَسار"},
+      {"fr": "À droite", "ar": "يَمِين"},
+      {"fr": "Avant", "ar": "قَبْلَ"},
+      {"fr": "Après", "ar": "بَعْدَ"},
+      {"fr": "Au milieu", "ar": "فِي الوَسَطِ"},
+      {"fr": "Nord", "ar": "شَمال"},
+      {"fr": "Sud", "ar": "جَنوب"},
+      {"fr": "Est", "ar": "شَرْق"},
+      {"fr": "Ouest", "ar": "غَرْب"}
+    ]
+  },
+
+  {
+    "title": "Goûts",
+    "words": [
+      {"fr": "Amer", "ar": "مُرٌّ"},
+      {"fr": "Sucré", "ar": "حُلْوٌ"},
+      {"fr": "Acide", "ar": "حامِضٌ"},
+      {"fr": "Salé", "ar": "مالِحٌ"}
+    ]
+  },
+
+  {
+    "title": "Couleurs",
+    "words": [
+      {"fr": "Blanc", "ar": "أَبْيَضُ"},
+      {"fr": "Noir", "ar": "أَسْوَدُ"},
+      {"fr": "Jaune", "ar": "أَصْفَرُ"},
+      {"fr": "Rouge", "ar": "أَحْمَرُ"},
+      {"fr": "Vert", "ar": "أَخْضَرُ"},
+      {"fr": "Marron", "ar": "بُنِّيٌّ"},
+      {"fr": "Rose", "ar": "وَرْدِيٌّ"},
+      {"fr": "Violet", "ar": "بَنَفْسَجِيٌّ"},
+      {"fr": "Bleu", "ar": "أَزْرَقُ"},
+      {"fr": "Gris", "ar": "رَمادِيٌّ"},
+      {"fr": "Orange (couleur)", "ar": "بُرْتُقالِيٌّ"}
+    ]
+  },
+
+  {
+    "title": "Personnes & âges",
+    "words": [
+      {"fr": "Nouveau-né", "ar": "مَوْلُودٌ جَدِيدٌ"},
+      {"fr": "Enfant", "ar": "طِفْل"},
+      {"fr": "Adolescent", "ar": "مُراهِق"},
+      {"fr": "Jeune", "ar": "شابّ"},
+      {"fr": "Jeune homme", "ar": "شابّ"},
+      {"fr": "Jeune femme", "ar": "شابَّة"},
+      {"fr": "Homme", "ar": "رَجُل"},
+      {"fr": "Femme", "ar": "اِمْرَأَة"},
+      {"fr": "Personne âgée", "ar": "شَخْصٌ مُسِنٌّ"}
+    ]
+  },
+
+  {
+    "title": "Traits physiques",
+    "words": [
+      {"fr": "Cheveux", "ar": "شَعْر"},
+      {"fr": "Longs", "ar": "طَوِيل"},
+      {"fr": "Courts", "ar": "قَصِير"},
+      {"fr": "Blond", "ar": "أَشْقَرُ"},
+      {"fr": "Brun", "ar": "بُنِّيٌّ / أَسْمَرُ"},
+      {"fr": "Lèvre", "ar": "شَفَة"},
+      {"fr": "Sourcils", "ar": "حَواجِب"},
+      {"fr": "Grains de beauté", "ar": "شّامَات"},
+      {"fr": "Taches de rousseur", "ar": "نَمَش"},
+      {"fr": "Son sourire", "ar": "ابْتِسامَتُهُ"}
+    ]
+  },
+
+  {
+    "title": "Qualités",
+    "words": [
+      {"fr": "Intelligent", "ar": "ذَكِيٌّ"},
+      {"fr": "Patient", "ar": "صَبُورٌ"},
+      {"fr": "Gentil", "ar": "لَطِيفٌ"},
+      {"fr": "Noble", "ar": "نَبِيلٌ"},
+      {"fr": "Unique", "ar": "فَرِيدٌ"},
+      {"fr": "Bonne humeur", "ar": "حَسَنُ المِزاج"},
+      {"fr": "Courageux", "ar": "شُجاعٌ"},
+      {"fr": "Mature", "ar": "ناضِجٌ"},
+      {"fr": "Fort", "ar": "قَوِيٌّ"},
+      {"fr": "Ambitieux", "ar": "طَموحٌ"},
+      {"fr": "Confiant", "ar": "واثِقٌ"}
+    ]
+  },
+
+  {
+    "title": "Famille",
+    "words": [
+      {"fr": "Père", "ar": "أَب"},
+      {"fr": "Mère", "ar": "أُمّ"},
+      {"fr": "Les parents", "ar": "الوالِدانِ"}
+    ]
+  },
+
+  {
+    "title": "Maison",
+    "words": [
+      {"fr": "Chambre", "ar": "غُرْفَةُ نَوْم"},
+      {"fr": "Salle de bain", "ar": "حَمّام"},
+      {"fr": "Salon", "ar": "صالون"},
+      {"fr": "Cuisine", "ar": "مَطْبَخ"}
+    ]
+  },
+
+  {
+    "title": "Objets",
+    "words": [
+      {"fr": "Tableau", "ar": "لَوْحَة"},
+      {"fr": "Panier", "ar": "سَلَّة"},
+      {"fr": "Horloge", "ar": "ساعَة"},
+      {"fr": "Sac", "ar": "حَقيبَة"},
+      {"fr": "Dictionnaire", "ar": "قامُوس"},
+      {"fr": "Table", "ar": "طاوِلَة"},
+      {"fr": "Bureau", "ar": "مَكْتَب"},
+      {"fr": "Ciseaux", "ar": "مِقَصٌّ"}
+    ]
+  },
+
+  {
+    "title": "Lieux",
+    "words": [
+      {"fr": "Pays", "ar": "بَلَد"},
+      {"fr": "Capitale", "ar": "عاصِمَة"},
+      {"fr": "Lieu", "ar": "مَكان"},
+      {"fr": "Hôtel", "ar": "الفُنْدُق"},
+      {"fr": "Hôpital", "ar": "مُسْتَشْفى"},
+      {"fr": "Rivière", "ar": "نَهْر"}
+    ]
+  },
+
+  {
+    "title": "Repas",
+    "words": [
+      {"fr": "Petit-déjeuner", "ar": "الفُطور"},
+      {"fr": "Déjeuner", "ar": "الغَداء"},
+      {"fr": "Dîner", "ar": "العَشاء"}
+    ]
+  },
+
+  {
+    "title": "Temps",
+    "words": [
+      {"fr": "Les saisons", "ar": "الفُصول"},
+      {"fr": "Printemps", "ar": "الرَّبِيع"},
+      {"fr": "Été", "ar": "الصَّيْف"},
+      {"fr": "Automne", "ar": "الخَرِيف"},
+      {"fr": "Hiver", "ar": "الشِّتاء"},
+      {"fr": "Le jour", "ar": "اليَوْم"},
+      {"fr": "À partir de maintenant", "ar": "ابْتِداءً مِنَ الآن"},
+      {"fr": "À partir d’aujourd’hui", "ar": "ابْتِداءً مِنَ اليَوْم"},
+      {"fr": "Quand", "ar": "مَتى"}
+    ]
+  },
+
+  {
+    "title": "Expressions",
+    "words": [
+      {"fr": "Comment vas-tu ?", "ar": "كَيْفَ حالُكَ؟"},
+      {"fr": "Ça va", "ar": "بِخَيْر"},
+      {"fr": "Grâce à Dieu", "ar": "الحَمْدُ لِلّٰهِ"},
+      {"fr": "Mon nom de famille est…", "ar": "لَقَبِي هُوَ…"},
+      {"fr": "Quel est ton nom ?", "ar": "ما اسْمُكَ؟"},
+      {"fr": "D’où viens-tu", "ar": "مِنْ أَيْنَ أَنْتَ؟"},
+      {"fr": "Enchanté", "ar": "تَشَرَّفْتُ بِلِقائِكَ"},
+      {"fr": "Merci beaucoup", "ar": "شُكْرًا جَزِيلًا"},
+      {"fr": "S’il vous plaît", "ar": "مِنْ فَضْلِكَ"},
+      {"fr": "S’il vous plaît (formel)", "ar": "مِنْ فَضْلِكُمْ / تَفَضَّل"},
+      {"fr": "Désolé", "ar": "آسِف"},
+      {"fr": "De rien", "ar": "عَلى الرَّحْبِ وَالسَّعَة"},
+      {"fr": "Excusez-moi", "ar": "عُذْرًا / المَعْذِرَة"},
+      {"fr": "Je vous en prie", "ar": "عَلى الرَّحْبِ وَالسَّعَة"},
+      {"fr": "Bienvenue", "ar": "أَهْلًا وَسَهْلًا"},
+      {"fr": "Félicitations", "ar": "مَبْرُوك"},
+      {"fr": "Bon appétit", "ar": "شَهِيَّةً طَيِّبَة"},
+      {"fr": "C’est à toi", "ar": "دَوْرُكَ"},
+      {"fr": "Je veux", "ar": "أُرِيدُ"},
+      {"fr": "Je serai", "ar": "سَأَكُونُ"}
+    ]
+  },
+
+  {
+    "title": "Verbes",
+    "words": [
+      {"fr": "Habiter", "ar": "يَسْكُنُ / يَعِيشُ"},
+      {"fr": "Se reposer", "ar": "يَرْتاحُ"},
+      {"fr": "Découvrir", "ar": "يَكْتَشِفُ"},
+      {"fr": "Voir", "ar": "يَرَى"},
+      {"fr": "Acheter", "ar": "يَشْتَرِي"}
+    ]
+  },
+
+  {
+    "title": "Animaux",
+    "words": [
+      {"fr": "Chien", "ar": "كَلْب"},
+      {"fr": "Poisson", "ar": "سَمَك"}
+    ]
+  },
+
+  {
+    "title": "Concepts & idées",
+    "words": [
+      {"fr": "Pensée", "ar": "فِكْرَة"},
+      {"fr": "Mot", "ar": "كَلِمَة"},
+      {"fr": "Le droit", "ar": "الحَقّ"},
+      {"fr": "Aussi", "ar": "أَيْضًا"},
+      {"fr": "Sûr / certain", "ar": "مُتَأَكِّدٌ"},
+      {"fr": "Présence", "ar": "حُضُور"},
+      {"fr": "Permission", "ar": "الإِذْن"},
+      {"fr": "Loyauté", "ar": "الوَفاء"},
+      {"fr": "Douceur", "ar": "اللُّطْف"},
+      {"fr": "Beauté", "ar": "الجَمال"}
+    ]
+  }
+]

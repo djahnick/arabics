@@ -3,6 +3,18 @@ import { listSessionsByCourse, createSession, removeSession } from './services/s
 import { CourseItem, SessionItem } from './ui/components.js';
 import { qs, el, toast } from './ui/dom.js';
 import { downloadJson, readFileAsText } from './utils/helpers.js';
+import { requireAuth, getCurrentUser, clearCurrentUser } from './auth.js';
+
+// Auth obligatoire
+requireAuth();
+const currentUser = getCurrentUser();
+const currentUserEl = document.getElementById('current-user');
+const logoutBtn = document.getElementById('logout');
+if (currentUserEl) currentUserEl.textContent = `Connecté : ${currentUser}`;
+logoutBtn?.addEventListener('click', () => {
+  clearCurrentUser();
+  window.location.href = './login.html';
+});
 
 // Vues
 const coursesView = document.getElementById('courses-view');

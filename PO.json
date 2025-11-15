@@ -1,0 +1,71 @@
+[
+  {
+    "title": "Météo — phénomènes",
+    "words": [
+      {"fr": "Le temps, la météo", "ar": "ٱلْجَوُّ / ٱلطَّقْسُ"},
+      {"fr": "Le soleil", "ar": "ٱلشَّمْسُ"},
+      {"fr": "La pluie", "ar": "ٱلْمَطَرُ"},
+      {"fr": "Le vent", "ar": "ٱلرِّيحُ"},
+      {"fr": "Les nuages", "ar": "ٱلْغُيُومُ / ٱلسَّحَابُ"},
+      {"fr": "La neige", "ar": "ٱلثَّلْجُ"},
+      {"fr": "Le brouillard", "ar": "ٱلضَّبَابُ"},
+      {"fr": "La tempête", "ar": "ٱلْعَاصِفَةُ"},
+      {"fr": "Le tonnerre", "ar": "ٱلرَّعْدُ"},
+      {"fr": "L’éclair", "ar": "ٱلْبَرْقُ"},
+      {"fr": "Le ciel", "ar": "ٱلسَّمَاءُ"},
+      {"fr": "L’arc-en-ciel", "ar": "قَوْسُ قُزَحٍ"}
+    ]
+  },
+
+  {
+    "title": "Météo — expressions",
+    "words": [
+      {"fr": "Le temps est pluvieux", "ar": "ٱلْجَوُّ مُمْطِرٌ"},
+      {"fr": "Le temps est ensoleillé", "ar": "ٱلْجَوُّ مُشْمِسٌ"},
+      {"fr": "Le vent souffle", "ar": "تَهُبُّ ٱلرِّيحُ"},
+      {"fr": "Le soleil brille", "ar": "تَشْرُقُ ٱلشَّمْسُ"},
+      {"fr": "Le temps est enneigé", "ar": "ٱلْجَوُّ مُثْلِجٌ"},
+      {"fr": "Le temps est nuageux", "ar": "ٱلْجَوُّ غَائِمٌ"},
+      {"fr": "Il fait beau", "ar": "ٱلْجَوُّ جَمِيلٌ"},
+      {"fr": "La pluie / la neige tombe", "ar": "يَنْزِلُ ٱلْمَطَرُ / يَنْزِلُ ٱلثَّلْجُ"},
+      {"fr": "Est-ce qu’il va pleuvoir ?", "ar": "هَلْ سَيَنْزِلُ ٱلْمَطَرُ ؟"},
+      {"fr": "Il fait … degrés", "ar": "دَرَجَةُ ٱلْحَرَارَةِ …"}
+    ]
+  },
+
+  {
+    "title": "Température",
+    "words": [
+      {"fr": "La température", "ar": "دَرَجَةُ ٱلْحَرَارَةِ"},
+      {"fr": "Chaleur", "ar": "ٱلْحَرَارَةُ"},
+      {"fr": "Froid", "ar": "ٱلْبَرْدُ"},
+      {"fr": "Gel", "ar": "ٱلصَّقِيعُ"},
+      {"fr": "Humidité", "ar": "ٱلرُّطُوبَةُ"},
+      {"fr": "Sécheresse", "ar": "ٱلْجَفَافُ"},
+      {"fr": "Il fait froid", "ar": "ٱلْجَوُّ بَارِدٌ"},
+      {"fr": "Il fait très chaud", "ar": "ٱلْجَوُّ حَارٌّ جِدًّا"},
+      {"fr": "Il fait très froid", "ar": "ٱلْجَوُّ بَارِدٌ جِدًّا"},
+      {"fr": "Il fait doux", "ar": "ٱلْجَوُّ مُعْتَدِلٌ"},
+      {"fr": "Température élevée", "ar": "دَرَجَةُ ٱلْحَرَارَةِ مُرْتَفِعَةٌ"},
+      {"fr": "Température basse", "ar": "دَرَجَةُ ٱلْحَرَارَةِ مُنْخَفِضَةٌ"}
+    ]
+  },
+
+  {
+    "title": "Saisons & points cardinaux",
+    "words": [
+      {"fr": "Le nord", "ar": "ٱلشَّمَالُ"},
+      {"fr": "Le sud", "ar": "ٱلْجَنُوبُ"},
+      {"fr": "L’est", "ar": "ٱلشَّرْقُ"},
+      {"fr": "L’ouest", "ar": "ٱلْغَرْبُ"},
+      {"fr": "Nord-est", "ar": "ٱلشَّمَالُ ٱلشَّرْقِيُّ"},
+      {"fr": "Nord-ouest", "ar": "ٱلشَّمَالُ ٱلْغَرْبِيُّ"},
+      {"fr": "Sud-est", "ar": "ٱلْجَنُوبُ ٱلشَّرْقِيُّ"},
+      {"fr": "Sud-ouest", "ar": "ٱلْجَنُوبُ ٱلْغَرْبِيُّ"},
+      {"fr": "Le printemps", "ar": "ٱلرَّبِيعُ"},
+      {"fr": "L’été", "ar": "ٱلصَّيْفُ"},
+      {"fr": "L’automne", "ar": "ٱلْخَرِيفُ"},
+      {"fr": "L’hiver", "ar": "ٱلشِّتَاءُ"}
+    ]
+  }
+]

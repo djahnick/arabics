@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light">
+  <title>Connexion — Mini Quizlet Arabe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles/main.css" />
+</head>
+<body class="min-h-screen bg-gray-50 flex items-center justify-center p-6">
+  <div class="w-full max-w-md card space-y-4">
+    <h1 class="text-2xl font-bold text-blue-700 text-center">📘 Mini Quizlet Arabe</h1>
+    <h2 class="text-lg font-semibold text-center">Connexion</h2>
+
+    <form id="login-form" class="space-y-3">
+      <div>
+        <label class="block text-sm mb-1" for="pseudo">Pseudo</label>
+        <input id="pseudo" class="input" autocomplete="username" required />
+      </div>
+      <div>
+        <label class="block text-sm mb-1" for="password">Mot de passe</label>
+        <input id="password" type="password" class="input" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn-primary w-full">Se connecter</button>
+    </form>
+
+    <p class="text-sm text-center text-gray-500">
+      Pas encore de compte ?
+      <a href="register.html" class="text-blue-600 underline">Créer un compte</a>
+    </p>
+  </div>
+
+  <script type="module" src="../src/login.js"></script>
+</body>
+</html>
